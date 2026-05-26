@@ -1,0 +1,5 @@
+cpus: 32
+gpus: 1
+mem_gb: 100
+gpu_type: l40s
+time: 7200

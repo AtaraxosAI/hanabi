@@ -1,0 +1,61 @@
+num_player: 3
+seed: "a"
+
+num_thread: 16
+num_game_per_thread: 128
+actor_sync_freq: 4
+
+num_epoch: 5000
+epoch_len: 2000
+batchsize: 256
+replay_buffer_size: 1024
+max_len: 80
+prefetch: 3
+
+train_device: cuda:0
+act_device: cuda:0
+
+bomb: 0
+num_color: 5
+num_rank: 5
+num_hint: 8
+
+net: publ-lstm
+num_lstm_layer: 2
+rnn_hid_dim: 512
+orth_init: 1
+
+ppo_clip: 0.2
+ent_weight: 0.035
+gamma: 0.999
+gae_lambda: 0.83
+multi_step: 1
+shuffle_color: 0
+use_old_v: 0
+value_weight: 0.5
+normalize_advantage: 1
+
+lr: 0.00035
+eps: 1.0e-8
+grad_clip: 0.5
+
+ent_schedule: slow
+ent_start_scale: 1.05
+ent_end_scale: 0.85
+ent_decay_power: 2.0
+ent_decay_alpha: 0.5
+lr_schedule: power
+lr_decay_power: 0.4
+schedule_update_offset: 0
+
+ema_decay: 0.9999
+
+eval_num_game: 5000
+eval_num_thread: 20
+
+save_per: 25
+use_wandb: 1
+wandb_project_name: hanabi-rl
+wandb_group_name: default
+wandb_run_name: 3p
+save_dir: exps/rl/3p

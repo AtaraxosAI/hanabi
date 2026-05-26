@@ -1,0 +1,32 @@
+[project]
+name = "neo-hanabi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.11.*"
+dependencies = [
+    "torch==2.0.1",
+    "cmake>=3.18,<4",
+    "numpy<2",
+    "psutil>=7.2.2",
+    "pyyaml>=6.0.3",
+    "tabulate>=0.10.0",
+    "black>=26.3.1",
+    "wandb>=0.26.1",
+    "pyrallis>=0.3.1",
+    "submitit>=1.5.4",
+    "matplotlib>=3.10.9",
+    "anthropic>=0.97.0",
+    "ipython>=9.13.0",
+    "tqdm>=4.67.3",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu118", marker = "sys_platform == 'linux'" },
+]
