@@ -13,7 +13,8 @@ def pred_loss(logp, gtruth, seq_len):
     logp = (logp * gtruth).sum(3)
     hand_size = gtruth.sum(3).sum(2).clamp(min=1e-5)
     logp_per_card = logp.sum(2) / hand_size
-    xent = -logp_per_card.sum() / seq_len.sum()
+    valid = torch.arange(logp.size(0), device=logp.device)[:, None] < seq_len[None, :]
+    xent = -(logp_per_card * valid).sum() / seq_len.sum()
     return xent
 
     # assert seq_len.size() == xent.size()
